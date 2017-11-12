@@ -12,4 +12,43 @@
 
     <name>HotelAdvisor</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>1.1.1.RELEASE</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <contractDependency>
+                        <groupId>prv.dudekre.testwarez2017</groupId>
+                        <artifactId>HotelAdvisorContract</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <classifier>stubs</classifier>
+                    </contractDependency>
+                    <contractsWorkOffline>true</contractsWorkOffline>
+                    <baseClassForTests>prv.dudekre.testwarez2017.hoteladvisor.contract.HotelsBaseTest</baseClassForTests>
+                    <contractsPath>META-INF/prv.dudekre.testwarez2017/HotelAdvisorContract/1.0-SNAPSHOT/contracts/1_0_0/tripAdvisor</contractsPath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
