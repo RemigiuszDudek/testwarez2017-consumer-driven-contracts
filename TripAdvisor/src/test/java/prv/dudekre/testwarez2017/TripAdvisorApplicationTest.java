@@ -10,26 +10,22 @@ import prv.dudekre.testwarez2017.infra.AdvisedTrip;
 import prv.dudekre.testwarez2017.infra.Hotel;
 import prv.dudekre.testwarez2017.infra.TripAdvisorController;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static prv.dudekre.testwarez2017.TripAdvisorApplicationTest.HOTEL_ADVISORPORT;
+import static prv.dudekre.testwarez2017.TripAdvisorApplicationTest.HOTEL_ADVISOR_PORT;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
         classes = TripAdvisorApplication.class,
-        properties = {"hotelAdvisor.url.host=localhost", "hotelAdvisor.url.port=" + HOTEL_ADVISORPORT})
+        properties = {"hotelAdvisor.url.host=localhost", "hotelAdvisor.url.port=" + HOTEL_ADVISOR_PORT})
 @AutoConfigureStubRunner(
-        ids = "prv.dudekre.testwarez2017:HotelAdvisorContract:1.0-SNAPSHOT:stubs:" + HOTEL_ADVISORPORT,
+        ids = "prv.dudekre.testwarez2017:HotelAdvisorContract:1.0-SNAPSHOT:stubs:" + HOTEL_ADVISOR_PORT,
         workOffline = true,
         stubsPerConsumer = true,
         consumerName = "tripAdvisor"
 )
 public class TripAdvisorApplicationTest {
-    public final static String HOTEL_ADVISORPORT = "7272";
+    public final static String HOTEL_ADVISOR_PORT = "7272";
     @Autowired TripAdvisorController tripAdvisorController;
 
     @Test
