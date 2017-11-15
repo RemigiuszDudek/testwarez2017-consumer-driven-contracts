@@ -22,11 +22,12 @@ public class TripAdvisorController {
         this.restTemplate = restTemplate;
     }
 
-    @RequestMapping(value = "advise", method = GET)
+    @RequestMapping(value = "/advise", method = GET)
     public AdvisedTrip adviseTripTo(@RequestParam String location) {
         String url = PROTOCOL + host + ":" + port;
         AdvisedHotels advisedHotels = restTemplate
                 .getForObject(url + "/hotels?location=" + location, AdvisedHotels.class);
-        return new AdvisedTrip(location, Hotel.fromAdvisedHotels(advisedHotels));
+        AdvisedTrip advisedTrip = new AdvisedTrip(location, Hotel.fromAdvisedHotels(advisedHotels));
+        return advisedTrip;
     }
 }

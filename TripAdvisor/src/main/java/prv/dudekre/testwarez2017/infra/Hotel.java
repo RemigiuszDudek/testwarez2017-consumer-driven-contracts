@@ -17,6 +17,18 @@ public class Hotel {
         this.address = address;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public static List<Hotel> fromAdvisedHotels(AdvisedHotels advisedHotels) {
         return advisedHotels.getAvailableHotels().stream()
                 .map((hotel) -> new Hotel(hotel.getId(), hotel.getName(), hotel.getAddress()))

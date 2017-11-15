@@ -12,6 +12,14 @@ public class AdvisedTrip {
         this.advisedHotels = advisedHotels;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public List<Hotel> getAdvisedHotels() {
+        return advisedHotels;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
